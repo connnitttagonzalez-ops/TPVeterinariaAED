@@ -1,3 +1,81 @@
+mascotas = []
+turnos_lista = []
+servicios_realizados = []
+
+id_mascota = 1
+id_turno = 1
+
+def volvermenu():
+    input("\nPresione enter para volver al menú")
+
+
+def registrarmascota():
+
+    global id_mascota
+
+    nombre = input("Nombre de la mascota: ")
+    especie = input("Especie: ")
+
+    try:
+
+        edad = int(input("Edad: "))
+
+    except ValueError:
+
+        print("La edad debe ser un número.")
+        volvermenu()
+        return
+
+    if edad <= 0:
+
+        print("La edad debe ser mayor a 0.")
+        volvermenu()
+        return
+
+    dueño = input("Nombre del dueño: ")
+
+    try:
+
+        telefono = int(input("Teléfono: "))
+
+    except ValueError:
+
+        print("El teléfono debe ser un número.")
+        volvermenu()
+        return
+
+    for mascota in mascotas:
+
+        if (mascota["nombre"] == nombre
+            and mascota["especie"] == especie
+            and mascota["edad"] == edad):
+
+            print("La mascota ya está registrada.")
+            volvermenu()
+            return
+
+    mascota = {
+
+        "id": id_mascota,
+        "nombre": nombre,
+        "especie": especie,
+        "edad": edad,
+        "dueño": dueño,
+        "telefono": telefono
+
+    }
+
+    mascotas.append(mascota)
+
+    print("\nMascota registrada correctamente.")
+    print("ID asignado:", id_mascota)
+
+    id_mascota += 1
+
+    volvermenu()
+
+
+
 while True:
 
     print("\n-------------------")
