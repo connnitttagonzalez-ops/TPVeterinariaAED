@@ -108,7 +108,37 @@ def servicios():
             print("2. Control rutinario")
             print("3. Desparasitación")
             print("4. Cirugía")
-            
+            opcion_medica = int(input("seleccione una opción: "))
+            if opcion_medica == 1:
+                servicio = "Vacunación"
+            elif opcion_medica == 2:
+                servicio = "Control rutinario"
+            elif opcion_medica == 3:
+                servicio = "Desparasitación"
+            elif opcion_medica == 4:
+                servicio = "Cirugía"
+            else:
+                print("opción inválida")
+                volvermenu()
+                return
+        else:
+            print("opción inválida")
+            volvermenu()
+            return
+        observacion = input("observaciones del servicio: ")
+        servicio_realizado = {
+            "id_turno": id_turno_buscar,
+            "id_mascota": turno_encontrado["id_mascota"],
+            "servicio": servicio,
+            "observacion": observacion
+        }
+        servicios_realizados.append(servicio_realizado)
+        turno_encontrado["realizado"] = True
+        print("servicio registrado correctamente")
+        volvermenu()
+    except ValueError:
+        print("debe ingresar los datos correspondientes")
+        volvermenu()
 
 
 while True:
