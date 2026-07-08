@@ -139,7 +139,7 @@ def servicios():
         turno_encontrado = None
         for turno in turnos_lista:
             if turno["id_turno"] == id_turno_buscar:
-                turno_encontrado == turno
+                turno_encontrado = turno
                 break
         if turno_encontrado == None:
             print("no existe ese turno")
