@@ -139,8 +139,78 @@ def servicios():
     except ValueError:
         print("debe ingresar los datos correspondientes")
         volvermenu()
-
-
+                
+def estadisticas():
+    if len(servicios_realizados) == 0:
+        print("Todavía no hay servicios realizados.")
+        volvermenu()
+        return
+    baños = 0
+    peluquerias = 0
+    productos = 0
+    vacunaciones = 0
+    controles = 0
+    desparasitaciones = 0
+    cirugias = 0
+    print("\nSERVICIOS REALIZADOS")
+    for servicio in servicios_realizados:
+        print("---------------------")
+        print("ID Mascota:", servicio["id_mascota"])
+        print("servicio:", servicio["servicio"])
+        print("observación:", servicio["observacion"])
+        nombre_servicio = servicio["servicio"]
+        if nombre_servicio == "Baño":
+            baños += 1
+        elif nombre_servicio == "Peluquería":
+            peluquerias += 1
+        elif nombre_servicio == "Venta de productos":
+            productos += 1
+        elif nombre_servicio == "Vacunación":
+            vacunaciones += 1
+        elif nombre_servicio == "Control rutinario":
+            controles += 1
+        elif nombre_servicio == "Desparasitación":
+            desparasitaciones += 1
+        elif nombre_servicio == "Cirugía":
+            cirugias += 1
+    print("\nESTADÍSTICAS")
+    print("Mascotas registradas:", len(mascotas))
+    print("Turnos registrados:", len(turnos_lista))
+    print("Servicios realizados:", len(servicios_realizados))
+    print("\nBaños realizados:", baños)
+    print("Peluquería realizadas:", peluquerias)
+    print("Productos vendidos:", productos)
+    print("Vacunaciones:", vacunaciones)
+    print("Controles rutinarios:", controles)
+    print("Desparasitaciones:", desparasitaciones)
+    print("Cirugías:", cirugias)
+    mayor = max(
+        baños,
+        peluquerias,
+        productos,
+        vacunaciones,
+        controles,
+        desparasitaciones,
+        cirugias
+    )
+    if mayor == 0:
+        servicio_mas_realizado = "Ninguno"
+    elif mayor == vacunaciones:
+        servicio_mas_realizado = "Vacunación"
+    elif mayor == controles:
+        servicio_mas_realizado = "Control rutinario"
+    elif mayor == desparasitaciones:
+        servicio_mas_realizado = "Desparasitación"
+    elif mayor == cirugias:
+        servicio_mas_realizado = "Cirugía"
+    elif mayor == baños:
+        servicio_mas_realizado = "Baño"
+    elif mayor == peluquerias:
+        servicio_mas_realizado = "Peluquería"
+    else:
+        servicio_mas_realizado = "Venta de productos"
+    print("\nServicio más realizado:", servicio_mas_realizado)
+    volvermenu()
 while True:
 
     print("\n-------------------")
