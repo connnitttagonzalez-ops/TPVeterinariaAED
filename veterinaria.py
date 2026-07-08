@@ -74,6 +74,41 @@ def registrarmascota():
 
     volvermenu()
 
+def servicios():
+    try:
+        id_turno_buscar = int(input("ingrese el ID del turno: "))
+        turno_encontrado = None
+        for turno in turnos_lista:
+            if turno["id_turno"] == id_turno_buscar:
+                turno_encontrado == turno
+                break
+        if turno_encontrado == None:
+            print("no existe ese turno")
+            volvermenu()
+            return
+        if turno_encontrado["realizado"] == True:
+            print("ese turno ya esta ocupado")
+            volvermenu()
+            return
+        print("SERVICIOS")
+        print("1. Baño")
+        print("2. Peluqueria")
+        print("3. Venta de productos")
+        print("4. Atencion Medica")
+        opcion = int(input("seleccione una opcion: "))
+        if opcion == 1:
+            servicio == "Baño"
+        elif opcion == 2:
+            servicio == "Peluqueria"
+        elif opcion == 3:
+            servicio == "Venta de productos"
+        elif opcion == 4:
+            print("\nATENCIÓN MÉDICA")
+            print("1. Vacunación")
+            print("2. Control rutinario")
+            print("3. Desparasitación")
+            print("4. Cirugía")
+            
 
 
 while True:
