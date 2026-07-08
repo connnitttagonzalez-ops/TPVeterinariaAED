@@ -156,11 +156,11 @@ def servicios():
         print("4. Atencion Medica")
         opcion = int(input("seleccione una opcion: "))
         if opcion == 1:
-            servicio == "Baño"
+            servicio = "Baño"
         elif opcion == 2:
-            servicio == "Peluqueria"
+            servicio = "Peluqueria"
         elif opcion == 3:
-            servicio == "Venta de productos"
+            servicio = "Venta de productos"
         elif opcion == 4:
             print("\nATENCIÓN MÉDICA")
             print("1. Vacunación")
@@ -220,7 +220,7 @@ def estadisticas():
         nombre_servicio = servicio["servicio"]
         if nombre_servicio == "Baño":
             baños += 1
-        elif nombre_servicio == "Peluquería":
+        elif nombre_servicio == "Peluqueria":
             peluquerias += 1
         elif nombre_servicio == "Venta de productos":
             productos += 1
@@ -265,7 +265,7 @@ def estadisticas():
     elif mayor == baños:
         servicio_mas_realizado = "Baño"
     elif mayor == peluquerias:
-        servicio_mas_realizado = "Peluquería"
+        servicio_mas_realizado = "Peluqueria"
     else:
         servicio_mas_realizado = "Venta de productos"
     print("\nServicio más realizado:", servicio_mas_realizado)
