@@ -74,6 +74,65 @@ def registrarmascota():
 
     volvermenu()
 
+def turnos():
+
+    global id_turno
+
+    try:
+
+        id_mascota_buscar = int(input("Ingrese el ID de la mascota: "))
+
+        encontrada = False
+
+        for mascota in mascotas:
+
+            if mascota["id"] == id_mascota_buscar:
+                encontrada = True
+                break
+
+
+        if encontrada == False:
+
+            print("La mascota no está registrada.")
+            volvermenu()
+            return
+
+        fecha = input("Ingrese la fecha del turno: ")
+        hora = input("Ingrese la hora del turno: ")
+
+        for turno in turnos_lista:
+
+            if turno["fecha"] == fecha and turno["hora"] == hora:
+
+                print("Ese horario ya está ocupado.")
+                volvermenu()
+                return
+
+        turno = {
+
+            "id_turno": id_turno,
+            "id_mascota": id_mascota_buscar,
+            "fecha": fecha,
+            "hora": hora,
+            "realizado": False
+
+        }
+
+        turnos_lista.append(turno)
+
+        print("\nTurno registrado correctamente.")
+        print("ID del turno:", id_turno)
+
+        id_turno += 1
+
+        volvermenu()
+
+    except ValueError:
+
+        print("Debe ingresar datos válidos.")
+        volvermenu()
+
+
 def servicios():
     try:
         id_turno_buscar = int(input("ingrese el ID del turno: "))
